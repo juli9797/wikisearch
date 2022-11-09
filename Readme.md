@@ -7,6 +7,7 @@ This is initially stolen from the fzf manpage and modified.
 * fzf
 * ripgrep
 * nvim
+* bat
 
 ## Installation
 
