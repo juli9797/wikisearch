@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Integration with ripgrep, stolen from fzf documentation
+RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case -g '*.$1'"
+INITIAL_QUERY=""
+FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
+fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+--delimiter : \
+--ansi --disabled --query "$INITIAL_QUERY"  \
+--preview "echo {} | awk -F: '{print \" -H \" \$2 \" \" \$1}'| xargs bat --color always" \
+--preview-window "+{2}-10" \
+--bind "enter:execute(echo {} | awk -F: '{print \"+\"\$2\" \"\$1}'| xargs nvim)"
