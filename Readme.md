@@ -34,6 +34,3 @@ to fuzy search all files with `.md` extensions in all folders and subfolders.
 Each search result can be previewed in the preview screen.
 To open the file in nvim press enter.
 
-## Todo
-
-* use fzf delimiter instead of awk
